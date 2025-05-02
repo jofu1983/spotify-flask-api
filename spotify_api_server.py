@@ -49,8 +49,10 @@ def spotify_link():
         return jsonify({"error": "No track found"}), 404
 
     track = items[0]
+
+    # GPT-kompatible, minimale Antwort
     return jsonify({
-        "name": track["name"],
+        "name": track.get("name", ""),
         "artist": track["artists"][0]["name"],
         "url": track["external_urls"]["spotify"]
     })
