@@ -1,0 +1,12 @@
+
+services:
+  - type: web
+    name: spotify-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn spotify_api_server:app"
+    envVars:
+      - key: CLIENT_ID
+        sync: false
+      - key: CLIENT_SECRET
+        sync: false
